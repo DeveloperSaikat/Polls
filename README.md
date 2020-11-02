@@ -1,27 +1,28 @@
-# PollsProject
+# Polls-Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
+This webapp let's you create your own Poll. You can share the your own custom generated Link and can evaluate the results in Real-time.
+This app distinguishes each user votes by their IP address.
 
-## Development server
+## Homepage:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![first](https://user-images.githubusercontent.com/40135714/97894111-23ce9200-1d58-11eb-91e4-804b29c1bc99.png)
 
-## Code scaffolding
+## Create Poll
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![second](https://user-images.githubusercontent.com/40135714/97894231-48c30500-1d58-11eb-8a2b-42d29371f9a9.png)
 
-## Build
+## Poll Page
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+![polls-page](https://user-images.githubusercontent.com/40135714/97894365-6d1ee180-1d58-11eb-8557-a4f27d27d079.png)
 
-## Running unit tests
+## Poll Statistics
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![poll-details](https://user-images.githubusercontent.com/40135714/97894468-8889ec80-1d58-11eb-9566-e1e320b754b0.png)
 
-## Running end-to-end tests
+## 404
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+If the custom URL provided is not present...
 
-## Further help
+![404](https://user-images.githubusercontent.com/40135714/97894589-b0795000-1d58-11eb-9df0-259912be6ff9.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
