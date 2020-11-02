@@ -1,0 +1,50 @@
+.card{
+    border-top-color: orange;
+    border-top-width: 6px;
+    box-shadow: 0 0 10px -2px;
+    animation-duration: .5s;
+    animation-name: slideIn;
+    animation-fill-mode: forwards;
+    transition: transform .5s ease;
+}
+
+.first-card{
+    margin-top: 5%;
+}
+
+.check-label{
+    font-size: 1.4em;
+}
+
+button{
+    width: 25%;
+}
+
+.results{
+    text-align: center;
+}
+
+.success{
+    color: green;
+    animation-duration: .5s;
+    animation-name: slideIn;
+    animation-fill-mode: forwards;
+    transition: transform .5s ease;
+}
+
+.fail{
+    color: red;
+    animation-duration: .5s;
+    animation-name: slideIn;
+    animation-fill-mode: forwards;
+    transition: transform .5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-200px);
+    }
+    to{
+        transform: translateX(0px);
+    }
+}

@@ -1,0 +1,70 @@
+.jumbotron{
+    background-image: linear-gradient(to right, purple, blue);
+    color: white;
+    border-radius: 0px;
+}
+
+.card{
+    box-shadow: 0 0 10px -2px;
+    animation-duration: .5s;
+    animation-name: slideIn;
+    animation-fill-mode: forwards;
+    transition: transform .5s ease;
+}
+
+.m-left{
+    margin-left: 6%;
+}
+
+.h-size{
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.c-size{
+    width: 50%;
+    margin: 10% 25% 0 25%;
+}
+
+.card-body{
+    width: 100%;
+}
+
+.poll-type{
+    margin-left: 5%;
+    width: 89%;
+    border-top-color: orange;
+    border-top-width: 6px;
+}
+
+#oval {
+    width: 100%;
+    height: 100%;
+    background: violet;
+    border-radius: 100%/20%;
+  }
+
+
+  @keyframes slideIn {
+    from {
+        transform: translateX(-200px);
+    }
+    to{
+        transform: translateX(0px);
+    }
+}
+
+  @media only screen and (max-width: 768px){
+      .info{
+          margin-left: 9%;
+          margin-bottom: 4%;
+          width: 80%;
+      }
+
+
+      .shift{
+          margin-top: 2%;
+          display: flex;
+          justify-content: center;
+      }
+  }

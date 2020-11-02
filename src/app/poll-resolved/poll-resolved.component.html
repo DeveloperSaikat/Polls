@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="card first-card">
+        <div class="card-body">
+            <h3 style="text-align: center; font-weight: bold;">Choose your option</h3>
+
+            <div *ngIf="showResponse" [ngClass]="{'success' : success===true, 'fail' : success === false}" class="results">
+                <br>
+                <h4><strong>{{result}}</strong></h4>
+            </div>
+
+            <form #formData='ngForm' (ngSubmit)="votePoll(formData.value)">
+                <div class="form-group">
+                  <label style="font-weight: bold;" for="exampleFormControlInput1">Question</label>
+                  <h4 name="question" id="exampleFormControlInput1">{{thisQuestion.question}}</h4>
+                </div>
+                <div *ngIf="!multipleEnable">
+                    <div *ngFor="let options of allOptions; let i = index">
+                        <input ngModel #answer="ngModel" name="answer" type="radio" id="answer" value="{{thisQuestion.options[i].id}}"
+                               required>
+                        <label class="check-label ml-2" for="optionOne">{{options}}</label>
+                      </div>
+                </div>
+                  
+                <div *ngIf="multipleEnable">
+                    <div *ngFor="let options of optionIds; let i = index">
+                        <input ngModel #answer="ngModel" name="answer" type="checkbox" id="answer" value="options"
+                            (change)="getAnswers($event, options)"   required>
+                        <label class="check-label ml-2" for="optionOne">{{this.thisQuestion.options[i].text}}</label>
+                      </div>
+                </div>                 
+                                  
+                  <!--<div>
+                    <input ngModel #answer="ngModel" name="answer" type="radio" id="answer" value="{{thisQuestion.options[1].id}}" required>
+                    <label class="check-label ml-2" for="optionTwo">{{thisQuestion.options[1].text}}</label>
+                  </div>-->
+
+                  
+                  <button type="submit" class="btn btn-success ml-3 mt-2" [disabled]="!formData.valid">Vote</button>
+
+                  <div *ngIf='btnShow'>
+                    <br>
+                    <button type="button" class="btn btn-success ml-3" (click)="createChart()">Show results</button>
+                  </div>                
+                                  
+              </form>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="card">
+            <div class="card-body">
+                <div  *ngIf='!showResults'>
+                    <h4 style="text-align: center; font-weight: bold;">Your results will appear here</h4>
+                </div>
+                <div  *ngIf='showResults' style="height: 250px;">
+                    <canvas id="canvasVotes">{{chartOfVotes}}</canvas>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="card">
+            <div class="card-body">
+                <h3 style="font-weight: bold;">Ongoing Polls</h3>  
+                
+                <br>
+
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Question</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let ask of questions">
+                            <td><a [routerLink]="['/polls',ask.slug]">{{ask.question}}</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          </div>
+
+</div>

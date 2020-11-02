@@ -1,0 +1,116 @@
+
+<div class="container">
+    <div class="card first-card">
+        <div class="card-body">
+            <h3 style="text-align: center; font-weight: bold;">Create Poll</h3>
+
+            <div *ngIf="showResponse" [ngClass]="{'success' : success===true, 'fail' : success === false}" class="results">
+              <br>
+              <div *ngIf="success">
+                <h4><strong>Share the link: </strong>{{result}}</h4>
+              </div>
+              <div *ngIf="!success">
+                <h4><strong>{{result}}</strong></h4>
+              </div>
+            </div>
+
+            <form ngNativeValidate #formData='ngForm' (ngSubmit)="createPoll(formData.value)">
+                <div class="form-group">
+                  <label style="font-weight: bold;" for="exampleFormControlInput1">Title</label>
+                  <input ngModel #question="ngModel" name="question" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Type your question here" required>
+                </div>
+                <div class="form-group">
+                    <label style="font-weight: bold;" for="exampleFormControlInput1">Custom URL</label>
+                    <input ngModel #slug="ngModel" name="slug" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Provide a Custom URL to share easily" required>
+                  </div>
+                <div class="form-group">
+                  <label style="font-weight: bold;" for="exampleFormControlTextarea1">Description (Optional)</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Provide a description for better understanding"></textarea>
+                </div>
+                <div class="form-group">
+                    <label style="font-weight: bold;" for="exampleFormControlSelect2">Answer Options</label>
+                    <input ngModel #optionOne="ngModel" name="optionOne" type="text" class="form-control mb-2" id="exampleFormControlInput1" placeholder="Provide your option" required>
+                    <input ngModel #optionTwo="ngModel" name="optionTwo" type="text" class="form-control mb-2" id="exampleFormControlInput1" placeholder="Provide your option" required>
+                </div>
+                <div class="newRows" *ngFor = "let newOne of newOptions; let i = index">
+                  <div class="form-group">
+                    <input name="answer{{i}}" [(ngModel)]="newOne.answer" type="text" class="form-control mb-2" id="exampleFormControlInput1" placeholder="Type your option">
+                  </div>                    
+                </div>
+
+                <div class="form-group">
+                    <input [(ngModel)]='multiSelect' name="multiSelect" type="checkbox" class="check-size mb-2 mr-2" id="exampleFormControlInput1">
+                    <label for="multipleOptions">Allow multiple options.</label>
+                </div>
+
+                <button type="button" class="btn btn-info" (click)="addOption()" >Add More Options</button>
+                <button type="submit" class="btn btn-success ml-2" [disabled]="!formData.valid">Create</button>
+                
+              </form>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <h3 style="font-weight: bold; text-align: center;margin-bottom: 2%;">How to use our Poll Maker</h3>
+
+        <div class="card">
+            <div class="card-body">
+              <p>Regardless of whether it's a short survey with friends or solving an eternal discussion in your message board - 
+                  Pollsify helps you to find the answer quickly and easily. Or have you always wanted to know what your followers really think? 
+                  You can create a poll here in seconds, without any login or registration. We also offer a poll management tool that requires a login, 
+                  but that's not a must in order to use Pollsify. 
+                  The best thing about Pollsify: All polling functions and the dashboard are 100% free.</p>
+
+               <h3 style="font-weight: bold;">Our step by step guide for Newcomers</h3>
+
+               <p>In case you never created a poll on Pollsify before, it might be a good start to read the instructions below. 
+                   Don't worry, it's just a simple two-step process that you'll get used to very quickly.</p>
+
+               <h4 style="font-weight: bold;">Ask a question and choose answer options</h4>
+               
+               <button type="button" class="btn btn-primary">
+                Step <span class="badge badge-light"> 1 of 2</span>
+               </button>
+
+               <br>
+               <br>
+
+               <p>The first step of creating a poll is entering the question you want to ask. A recommendation is to keep it short and on point, 
+                   there will be an option to add a description text later on, where you can explain further details of your concern. 
+                   Furthermore, make sure that you add all the answer options you can think of, since you can't change them later. 
+                   Otherwise, the poll results might be falsified for users that voted before the change.</p>
+                
+               <h4 style="font-weight: bold;">Review the settings and create the poll</h4>
+
+               <button type="button" class="btn btn-primary">
+                Step <span class="badge badge-light"> 2 of 2</span>
+               </button>
+
+               <br>
+               <br>
+
+               <p>
+                As soon as your question and your answer options are good to go, have a look at the settings below. 
+                Here is a little overview of the settings you can choose from (don't forget the advanced settings for special features) and their explanations:
+               </p>
+
+               <ul>
+                   <li style="font-weight: bold;">Private</li>
+                   <p>If you want to keep the poll private to a little audience, make sure to check this option. 
+                       Beware: Regardless of this option, as soon as you share the poll link publicly on the internet, 
+                       search engines will be part of your "little audience".
+                   </p>
+
+                   <li style="font-weight: bold;">Single or Multiple Choices</li>
+                   <p>By default, each voter can only pick one answer option. 
+                       By setting your poll to multiple-choice, your participants can choose as many answer options as they want in a single vote.</p>
+                
+               </ul>
+            </div>
+          </div>
+    </div>
+    
+
+   
